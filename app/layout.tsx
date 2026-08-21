@@ -1,49 +1,24 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+  title: 'Oomkar Technical Services | Solar EPC, Odisha',
+  description: 'End-to-end solar EPC solutions engineered for homes, businesses, and industry across Odisha.',
+  keywords: ['solar EPC Odisha', 'rooftop solar Baripada', 'solar water pumping', 'Oomkar Technical Services'],
+  openGraph: {
+    title: 'Oomkar Technical Services | Powering progress. Responsibly.',
+    description: 'Practical solar engineering for a brighter baseline.',
+    type: 'website',
+    locale: 'en_IN',
   },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  themeColor: [{ media: '(prefers-color-scheme: light)', color: '#f5f6f0' }, { media: '(prefers-color-scheme: dark)', color: '#102019' }],
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
-  )
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en" className="bg-background"><body className="antialiased">{children}</body></html>
 }
+
